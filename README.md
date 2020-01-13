@@ -1,7 +1,8 @@
 # Monty Hall
 
 
-
+## Uses minitest, run
+`bundle install`
 
 ## run tests with
-`ruby -Itest tests/all.rb`
+`rake test`
