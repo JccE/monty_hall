@@ -22,10 +22,11 @@ class GameTest < Minitest::Test
     end
 
     def test_game_has_single_initial_opened_door
-      @game.open_initial_door
-      assert_equal 1, @doors.select {|d| d.opened == true}.count
+      p @game.open_initial_door
+      assert_equal 1, @game.doors.select {|d| d.opened == true}.count
     end
 
+    # def test_
 end
 
 

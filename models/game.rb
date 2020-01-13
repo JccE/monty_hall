@@ -13,6 +13,7 @@ class Game
     door_2 = Door.new
     door_3 = Door.new
     @doors = [door_1,door_2,door_3]
+    set_winning_door
   end
 
   def set_winning_door
@@ -20,9 +21,8 @@ class Game
   end
 
   def open_initial_door
-    @doors.sample.open_door
+    arr = @doors.select {|d| !d.prize}
+    arr.sample.open_door
   end
-
-
 
 end
