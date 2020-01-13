@@ -1,10 +1,11 @@
 class Door
 
-  attr_accessor :prize, :opened
+  attr_accessor :prize, :opened, :selected_door
 
   def initialize
     @prize = false
     @opened = false
+    @selected_door = false
   end
 
   def open_door
@@ -15,5 +16,8 @@ class Door
     @prize = true
   end
 
+  def select_initial_door
+    @selected_door = true
+  end
 
 end

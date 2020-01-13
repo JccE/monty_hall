@@ -26,18 +26,18 @@ class GameTest < Minitest::Test
       assert_equal 1, @game.doors.select {|d| d.opened == true}.count
     end
 
-    def test_contestant_choices_hash
+    def test_contestant_choices
       @game.open_initial_door
       choices = @game.doors.select {|d| d.opened == false}
       assert_equal 2, choices.count
     end
 
-    def test_contestant_choice
+    def skip test_contestant_choice
       @game.open_initial_door
       assert_equal 1, [@game.contestant_choice].length
     end
 
-    def test_door_switch
+    def skip test_door_switch
 
     end
 
