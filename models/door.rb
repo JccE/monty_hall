@@ -1,13 +1,18 @@
 class Door
-  attr_accessor :winning_state, :opened
+
+  attr_accessor :prize, :opened
 
   def initialize
-    @winning_state = false
+    @prize = false
     @opened = false
   end
 
   def open_door
     @opened = true
+  end
+
+  def set_as_prize
+    @prize = true
   end
 
 

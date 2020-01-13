@@ -3,9 +3,9 @@ require_relative './../models/game.rb'
 
 class GameTest < Minitest::Test
 
-
     def setup
       @game = Game.new
+      @doors = @game.create_door_array
     end
 
     def test_game_exists
@@ -17,7 +17,13 @@ class GameTest < Minitest::Test
     end
 
     def test_game_has_three_doors
-      assert_equal @game.doors.count, 3
+      @game.create_door_array
+      assert_equal 3,@game.doors.count
+    end
+
+    def test_game_has_single_initial_opened_door
+      @game.open_initial_door
+      assert_equal 1, @doors.select {|d| d.opened == true}.count
     end
 
 end
