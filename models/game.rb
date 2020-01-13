@@ -6,6 +6,7 @@ class Game
   def initialize
     @doors = []
     @win = false
+    @c_choices = []
   end
 
   def create_door_array
@@ -23,6 +24,14 @@ class Game
   def open_initial_door
     arr = @doors.select {|d| !d.prize}
     arr.sample.open_door
+  end
+
+  def contestant_choices
+    @doors.select {|d| d.opened == false}
+  end
+
+  def contestant_choice
+    contestant_choices.sample
   end
 
 end

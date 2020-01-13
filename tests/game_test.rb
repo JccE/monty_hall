@@ -22,11 +22,21 @@ class GameTest < Minitest::Test
     end
 
     def test_game_has_single_initial_opened_door
-      p @game.open_initial_door
+      @game.open_initial_door
       assert_equal 1, @game.doors.select {|d| d.opened == true}.count
     end
 
-    # def test_
+    def test_contestant_choices
+      @game.open_initial_door
+      choices = @game.doors.select {|d| d.opened == false}
+      assert_equal 2, choices.count
+    end
+
+    def test_contestant_choice
+      @game.open_initial_door
+      assert_equal 1, [@game.contestant_choice].length
+    end
+
 end
 
 
