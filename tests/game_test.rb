@@ -21,30 +21,35 @@ class GameTest < Minitest::Test
       assert_equal 3,@game.doors.count
     end
 
-    def test_game_has_single_initial_opened_door
-      @game.open_initial_door
+    def test_single_falsey_opened_door
+      @game.open_falsey_door
       assert_equal 1, @game.doors.select {|d| d.opened == true}.count
     end
 
-    def test_contestant_choices
-      @game.open_initial_door
+    def test_remaining_doors
+      @game.open_falsey_door
       choices = @game.doors.select {|d| d.opened == false}
       assert_equal 2, choices.count
     end
 
-    def skip test_contestant_choice
-      @game.open_initial_door
-      assert_equal 1, [@game.contestant_choice].length
+    def test_game_opens_one_falsey_door
+       p @game.open_falsy_door
     end
+
+
+
+
+
+
+
 
     def skip test_door_switch
-
     end
-
 
     def skip test_check
-
     end
+
+
 
 end
 

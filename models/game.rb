@@ -1,12 +1,12 @@
 require_relative "door.rb"
 
 class Game
-  attr_accessor :doors, :win, :choices
+  attr_accessor :doors, :win
 
   def initialize
     @doors = []
     @win = false
-    @choices = []
+    self.create_door_array
   end
 
   def create_door_array
@@ -25,17 +25,22 @@ class Game
     @doors.sample.select_initial_door
   end
 
-  def open_initial_door
-    arr = @doors.select {|d| !d.prize && !d.selected_door }
-    arr.sample.open_door
+  def open_falsey_door
+    @doors.select do |d|
+      if !d.prize && !d.contestant_door
+        d.open_door
+      end
+    end
   end
 
-  def contestant_choices
-    @choices = @doors.select {|d| d.opened == false}
+  # returns array of remaining doors
+  def remaining_doors
+    @doors.select {|d| d.opened == false}
   end
 
-  # def contestant_choice
-  #   stay = contestant_choices.sample
-  # end
+  def switch_doors
+    remaining_doors.each {|door| (door.contestant_door == true )? (door.contestant_door == false) : (door.contestant_door == true)}
+  end
+
 
 end

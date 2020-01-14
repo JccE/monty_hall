@@ -14,7 +14,7 @@ class DoorTest < Minitest::Test
     def test_initial_falsey_door_states
       assert !@door.prize
       assert !@door.opened
-      assert !@door.selected_door
+      assert !@door.contestant_door
     end
 
     def test_open_door_sets_to_true
