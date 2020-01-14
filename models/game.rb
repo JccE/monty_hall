@@ -56,7 +56,6 @@ class Game
     else
       switched = false
     end
-    # self
   end
 
 end

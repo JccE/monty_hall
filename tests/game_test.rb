@@ -36,21 +36,6 @@ class GameTest < Minitest::Test
        p @game.open_falsy_door
     end
 
-
-
-
-
-
-
-
-    def skip test_door_switch
-    end
-
-    def skip test_check
-    end
-
-
-
 end
 
 
