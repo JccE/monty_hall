@@ -6,6 +6,7 @@ RESULTS = {
   :id => nil,
   :win => false,
   :switched => false,
+  'count' => 0
 }
 
 def initialize_game
