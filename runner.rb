@@ -7,7 +7,7 @@ FIVE_THOUSAND = 5000
 
 results = {
   'switched': 0,
-  'wins'
+  'wins': 0
 }
 
 # Contestant spins up game
@@ -26,14 +26,17 @@ game.create_door_array
 game.open_falsey_door
 
 # Return array of last choices
-game.remaining_doors
+# p game.remaining_doors
+game.switch_doors
+# p game.remaining_doors
 
-# Switch half of the time
-FIVE_THOUSAND.times do
-  game.switch_doors
-end
+# Given the array of last choices, switch half of the time
+# FIVE_THOUSAND.times do
+#   game.switch_doors
+# end
 
+# Of the
 
 # game
 @c = @contestant_game
-p @c
+p @c #.play_game

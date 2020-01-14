@@ -42,5 +42,9 @@ class Game
     remaining_doors.each {|door| (door.contestant_door == true )? (door.contestant_door == false) : (door.contestant_door == true)}
   end
 
+  def determine_win
+    @doors.select {|d| d.opened}
+  end
+
 
 end
