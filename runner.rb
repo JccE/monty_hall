@@ -2,32 +2,36 @@ require_relative "models/door.rb"
 require_relative "models/game.rb"
 require_relative "models/contestant.rb"
 
-TEN_THOUSAND = 10000
-FIVE_THOUSAND = 5000
-
-results = {
-  'switched': 0,
-  'wins': 0
+RESULTS = {
+  :id => nil,
+  :win => false,
+  :switched => false,
 }
 
-# Contestant spins up game
-game = Game.new
-@contestant_game = Contestant.new(game)
+def initialize_game
+  # Contestant spins up game
+  game = Game.new
+  @contestant = Contestant.new(game)
 
-# p contestant.play_game
+  # Contestant chooses door, returns door_choice arr
+  @contestant.pick_door
 
-# Populate Game with new door array
-# game.create_door_array
+  # Game opens falsey door that is not contestant's door or prize door, returns door
+  game.open_falsey_door
 
-# Contestant chooses door, returns door_choice arr
-@contestant_game.pick_door
+  # Randomize contestant's switches
+  game.switch_engine
 
-# Game opens falsey door that is not contestant's door or prize door, returns door
-game.open_falsey_door
+  if game.determine_win
+    RESULTS[:win] = true
+  end
 
-# Return array of last choices
-# p game.remaining_doors
-game.switch_doors
+  if game.switched
+    RESULTS[:switched] = true
+  end
+end
 
-@c = @contestant_game
-p @c
+initialize_game
+p RESULTS
+
+

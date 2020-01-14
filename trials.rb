@@ -1,17 +1,44 @@
-require_relative "models/door.rb"
-require_relative "models/game.rb"
-require_relative "models/contestant.rb"
+require_relative "runner.rb"
 
 TEN_THOUSAND = 10000
 FIVE_THOUSAND = 5000
 
-results = {
-  'switched': 0,
-  'wins': 0,
+class Trials
 
-}
+  def initialize
+    @win_after_switch = 0
+    @win_without_switch = 0
+  end
+
+  def increment_win_after_switch_count
+    if RESULTS[:win] && RESULTS[:switched]
+      @win_after_switch += 1
+    end
+    @win_after_switch
+  end
+
+  def increment_win_without_switch_count
+    if RESULTS[:win] && !RESULTS[:switched]
+      @win_without_switch += 1
+    end
+    @win_without_switch
+  end
+
+end
 
 
-# Run Game 10,000 times
+FIVE_THOUSAND.times do
+  @trial = Trials.new
+  initialize_game
+  @trial.increment_win_after_switch_count
+  @trial.increment_win_without_switch_count
+ end
+p @trial
+#  p @win_after_switch
+#  p trial.count
+# p RESULTS
 
-# Run switch doors 5,000 times
+
+
+# p win_after_switch
+# p win_without_switch

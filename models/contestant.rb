@@ -1,6 +1,5 @@
 class Contestant
-
-  attr_accessor :pick_door
+  attr_accessor :pick_door, :game
 
   def initialize game
     @game = game
@@ -12,6 +11,4 @@ class Contestant
     door.select_contestant_door
     @door_choice << door
   end
-
-
 end
