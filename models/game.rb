@@ -22,7 +22,7 @@ class Game
   end
 
   def set_selected_door
-    @doors.sample.select_initial_door
+    @doors.sample.select_contestant_door
   end
 
   def open_falsey_door
@@ -38,9 +38,15 @@ class Game
     @doors.select {|d| d.opened == false}
   end
 
+
   def switch_doors
     remaining_doors.each {|door| (door.contestant_door == true )? (door.contestant_door == false) : (door.contestant_door == true)}
   end
+
+  def show
+
+  end
+
 
   def determine_win
     @doors.select {|d| d.opened}

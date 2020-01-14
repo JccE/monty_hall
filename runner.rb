@@ -17,7 +17,7 @@ game = Game.new
 # p contestant.play_game
 
 # Populate Game with new door array
-game.create_door_array
+# game.create_door_array
 
 # Contestant chooses door, returns door_choice arr
 @contestant_game.pick_door
@@ -28,15 +28,6 @@ game.open_falsey_door
 # Return array of last choices
 # p game.remaining_doors
 game.switch_doors
-# p game.remaining_doors
 
-# Given the array of last choices, switch half of the time
-# FIVE_THOUSAND.times do
-#   game.switch_doors
-# end
-
-# Of the
-
-# game
 @c = @contestant_game
-p @c #.play_game
+p @c
