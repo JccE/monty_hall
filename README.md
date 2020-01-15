@@ -1,7 +1,5 @@
 # Monty Hall
 
-## Switch branch to solution
-
 ## Uses minitest, run
 `bundle install`
 
