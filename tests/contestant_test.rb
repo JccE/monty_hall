@@ -11,4 +11,8 @@ class ContestantTest < Minitest::Test
       assert @contestant
     end
 
+    def test_for_guess
+      @contestant.guess
+    end
+
 end
