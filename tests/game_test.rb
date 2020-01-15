@@ -6,6 +6,7 @@ class GameTest < Minitest::Test
     def setup
       @game = Game.new
       @doors = @game.create_door_array
+      @contestant = Contestant.new
     end
 
     def test_game_exists
@@ -21,19 +22,14 @@ class GameTest < Minitest::Test
       assert_equal 3,@game.doors.count
     end
 
-    def test_single_falsey_opened_door
-      @game.open_falsey_door
-      assert_equal 1, @game.doors.select {|d| d.opened == true}.count
+    def test_winning_door
+      @game.set_winning_door
+      assert @doors.any? {|d| d.prize}
     end
 
-    def test_remaining_doors
-      @game.open_falsey_door
-      choices = @game.doors.select {|d| d.opened == false}
-      assert_equal 2, choices.count
-    end
-
-    def test_game_opens_one_falsey_door
-       p @game.open_falsy_door
+    def test_determine_switch_selects_a_door
+      g = @contestant.guess
+      assert @doors[g]
     end
 
 end
