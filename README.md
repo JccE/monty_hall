@@ -1,6 +1,6 @@
 # Monty Hall
 
-## Uses minitest, run
+## Run
 `bundle install`
 
 ## Run tests with
