@@ -1,12 +1,13 @@
 # Monty Hall
 
+## Switch branch to solution
 
 ## Uses minitest, run
 `bundle install`
 
-## run tests with
+## Run tests with
 `rake test`
 
-## switch branch to solution
+## Run code with
+`ruby runner.rb`
 
-##
